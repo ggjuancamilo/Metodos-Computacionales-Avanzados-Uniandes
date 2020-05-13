@@ -1,0 +1,351 @@
+\documentclass[letterpaper,10pt,onecolumn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{enumitem}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{calligra}
+\usepackage{url}
+%\usepackage{algpseudocode} 
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\lstloadlanguages{[5.2]Mathematica}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{490pt}
+\setlength{\topmargin}{-40pt}
+\addtolength{\hoffset}{-0.3cm}
+\addtolength{\textheight}{4cm}
+
+\begin{document}
+\begin{center}
+
+%\includegraphics[width=490pt]{header.png}\\[0.5cm]
+
+\textsc{\LARGE M\'etodos Computacionales Avanzados}\\[0.1cm]
+
+\large Jaime E. Forero Romero\\[0.5cm]
+
+\end{center}
+
+\large \noindent\textsc{Nombre del curso:}  M\'etodos Computacionales
+Avanzados%Aqui  
+                                %nombre del curso 
+  
+\noindent\textsc{C\'odigo del curso:} FISI 3028 / FISI 4028 %Aqui el codigo del
+                                %curso 
+
+\noindent\textsc{Unidad acad\'emica:} Departamento de F\'isica
+
+\noindent\textsc{Periodo acad\'emico:} 201820 %Aqui el periodo,
+                                %p.ej. 201510 
+
+\noindent\textsc{Horario:} Mi 6:30 a 7:50 y Vi 6:30 a 7:50 %Aqui el horario, %p.ej. Ma y Ju, 10:00 a 11:20 
+
+\noindent\rule{\textwidth}{1pt}\\[-0.3cm]
+
+\normalsize \noindent\textsc{Nombre profesor(a) principal:} Jaime
+E. Forero Romero%Aqui nombre del profesor principal 
+
+\noindent\textsc{Correo electr\'onico:}
+\href{mailto:je.forero@uniandes.edu.co}{\nolinkurl{je.forero@uniandes.edu.co}}
+%Cambie address por su direccion de correo uniandes 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} Ma y Ju 10:00 a
+%11:00 AM, Oficina Ip208 %Aqui su horario y lugar de atencion, p.ej. Vi,
+                     %15:00 a 17:00, Oficina Ip102  
+%\\[-0.1cm]
+
+\noindent\textsc{Nombre profesor(a) complementario(a):} %Aqui nombre
+                                %del profesor complementario si aplica 
+
+\noindent\textsc{Correo electr\'onico:}
+\href{mailto:@uniandes.edu.co}{\nolinkurl{@uniandes.edu.co}}
+
+%Cambie address por direccion de correo uniandes del profesor
+%complementario 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} %Aqui horario y
+%lugar de atencion del profesor complementario, p.ej. Vi, 15:00 a
+%17:00, Oficina Ip102 
+%\\[-0.1cm]
+%Repetir esto en caso de varios profesores complementarios
+
+%\noindent\textsc{Nombre monitor(a):} %Aqui nombre del monitor si aplica
+
+%\noindent\textsc{Correo electr\'onico:}
+%\href{mailto:address@uniandes.edu.co}{\nolinkurl{address@uniandes.edu.co}}
+%%Cambie address por direccion de correo uniandes del monitor 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} %Aqui horario y
+%lugar de atencion del monitor, p.ej. Vi, 15:00 a 17:00, Oficina Ip102 
+
+\noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+
+\newcounter{mysection}
+\addtocounter{mysection}{1}
+
+\noindent\textbf{\large \Roman{mysection} \quad Introducci\'on}\\[-0.2cm]
+
+%Este espacio es para hacer una introduccion al curso, evidenciando la
+%propuesta metodologica. Debe ser clara y precisa. 
+
+\noindent\normalsize Los m\'etodos computacionales fundamental el
+trabajo en todas las \'areas t\'ecnicas y cient\'ificas,
+ya sean principalmente experimentales o te\'oricas. Esto se debe en
+gran parte a que la capacidad de utilizar computadoras de alto
+rendimiento ha disminuido en costo monetario y en complejidad.
+
+El curso de M\'etodos Computacionales Avanzados presenta estas
+posibilidades computacionales a estudiantes de diferentes disciplinas
+cient\'ificas. Para esto se porpone profundizar sus conocimientos
+en dos \'areas: implementaci\'on de m\'etodos de aprendizaje estadístico (i.e. Machine Learning, algoritmos que aprenden de datos) y utilizaci\'on de t\'ecnicas de c\'omputo
+masivamente paralelo.
+
+Se asume que los estudiantes de este curso ya tienen conocimientos
+b\'asicos en m\'etodos computacionales equivalentes al nivel del curso
+M\'etodos Computacionales (FISI-2028). 
+\\[0.1cm]
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Objetivos}\\[-0.2cm]
+
+%En este espacio se debe precisar el ente visor del curso y el
+%proposito ideal al finalizar el curso. 
+\noindent\normalsize Los objetivos principales del curso son:
+
+\begin{itemize}
+
+  \item Demostrar aplicaciones de m\'etodos des estad\'istica bayesiana para el an\'alisis estad\'istico de datos. \\ [-0.6cm]
+        \item Demostrar el uso de m\'etodos y librer\'ias de aprendizaje estad\'istico ( Machine
+          Learning). \\[-0.6cm]
+        \item Mostrar diferentes arquitecturas, paradigmas, lenguajes
+          y librerias para c\'omputo masivamente paralelo.  \\[-0.6cm]
+	\item Estudiar diferentes aplicaciones prácticas a problemas
+          científicos y del contexto industrial de las metodologías
+          computacionales modernas. \\[-0.6cm] 
+\end{itemize}
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Competencias a
+  desarrollar}\\[-0.2cm] 
+
+%En este espacio se describen las habilidades que el estudiante desarrollara en el transcurso del curso.
+
+\noindent\normalsize Al finalizar el curso, se espera que el
+estudiante est\'e en capacidad de: 
+
+\begin{itemize}
+\item Manejar lenguajes modernos de computación numérica de
+  bajo nivel (i.e. C/C++) y de alto nivel
+  (i.e. Python/R/Julia). \\[-0.6cm]
+\item Tener un esquema para pre-procesar, analizar y generar
+  reportes científicos y técnicos a partir de diversas fuentes
+  de datos utilizando métodos computacionales. \\[-0.6cm] 
+\item Desplegar programas en paralelo en un cluster \\[-0.6cm].
+\item Generar conocimiento a partir del modelamiento te\'orico
+  y computacional de los conceptos vistos en clase.\\[-0.2cm]  
+\end{itemize}
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Contenido por
+  semanas}\\[-0.2cm] 
+
+%Se expone de forma ordenada toda la tematica a tratar del curso. Debe planearse para 15 semanas.
+
+\noindent\textbf{\textsc{Semana 1.}}
+Binder. Jupyterlab. Fundamentos de python, numpy y matplotlib.
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 2.}}
+Fundamentos de probabilidad y Teorema de Bayes.\\
+Referencia: Cap\'itulos 1 de DABT
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 3.}} 
+Estimaci\'on de par\'ametros con estad\'istica bayesiana. Algoritmo de Metropolis-Hastings.\\
+Referencia: Cap\'itulo 29 de ITILA. Cap\'itulos 2 y 3 de DABT.  
+\\[-0.3cm]  
+
+\noindent\textbf{\textsc{Semana 4.}}
+Algoritmos Monte Carlo eficientes: Nested Sampling, Hamiltoniano\\
+Referencia: Cap\'itulo 30 de ITILA. Cap\'itulo 9 de DABT.
+\\[-0.3cm] 
+
+\noindent\textbf{\textsc{Semana 5.}} 
+Selecci\'on de Modelos\\
+Referencia: Cap\'itulo 4 de DABT.
+\\[-0.3cm] 
+
+\noindent\textbf{\textsc{Semana 6.}}  
+Introducci\'on a Machine Learning. \\
+Referencia: Cap\'itulos 1 y 2 de ISLR.
+\\[-0.3cm] 
+
+\noindent\textbf{\textsc{Semana 7.}}  
+Regresi\'on lineal y cross-validation\\
+Referencia: Cap\'itulos 3 y 5 de ISLR.
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 8.}} 
+Cross-validation y regularizaci\'on.\\
+Referencia: Cap\'itulos 5 y 6 de ISLR.
+\\[-0.3cm]  
+
+\noindent\textbf{\textsc{Semana 9.}}
+Semana de receso.
+\\[-0.3cm] 
+
+\noindent\textbf{\textsc{Semana 10.}} 
+Clasificaci\'on.\\
+Referencia: Cap\'itulo 4 ISLR. 
+\\[-0.3cm]  
+
+\noindent\textbf{\textsc{Semana 11.}} 
+\'Arboles de Decisi\'on.\\
+Referencia: Cap\'itulo 8 ISLR. 
+\\[-0.3cm] 
+
+\noindent\textbf{\textsc{Semana 12.}} 
+Support Vector Machines.\\
+Referencia: Cap\'itulo 9 ISLR.
+\\[-0.3cm] 
+
+\noindent\textbf{\textsc{Semana 13.}}
+PCA, Clustering, K-means. t-SNE.\\
+Referencia: Cap\'itulo 10 ISLR. 
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 14.}} 
+Fundamentos de C. Makefiles. Taxonom\'ia de arquitecturas para
+c\'omputo en paralelo. M\'aquinas para c\'omputo en paralelo en
+Uniandes.\\ 
+Referencia: Cap\'itulo 11 del libro de ISTC. 
+\\[-0.3cm]  
+
+
+\noindent\textbf{\textsc{Semana 15.}} 
+Fundamentos de programaci\'on en paralelo: MPI.\\
+Referencia: Cap\'itulo 12 del libro de ISTC.
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 16.}} 
+Fundamentos de programaci\'on en paralelo: OPENMP.\\
+Referencia: Cap\'itulo 13 del libro de ISTC.
+\\[0.1cm]
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad
+  Metodolog\'ia}\\[-0.2cm] 
+
+%Se describen las tecnicas y metodos para el desarrollo exitoso del curso.
+
+\noindent\normalsize Cada semana tendremos una corta presentaci\'on
+te\'orica (media hora aproximadamentes) para pasar a ejercitar esos
+conceptos directamente en la computadora/cluster haciendo
+ejercicios de pr\'actica (dos horas aproximadamente). 
+Los estudiantes deben leer la bibliograf\'ia recomendada {\bf antes}
+de las clases correspondientes.
+\\[0.1cm]
+
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Criterios de
+  evaluaci\'on}\\[-0.2cm] 
+
+Las componentes que reciben calificaci\'on son las siguientes:
+
+\begin{itemize}
+\item 
+Ejercicios para resolver y entregar en cada clase. 
+El profesor eligir\'a cinco de estos ejercicios para ser calificados. 
+Cada ejercicio cuenta un $10\%$ de la nota definitiva.
+
+\item
+Asistencia a clase. La asistencia se verifica a partir de la entrega de
+los ejercicios hechos en clase. 
+No entregar un ejercicio se asume como una falta a clase.
+Cada falta recibe una nota de 0.0 y cada
+asistencia recibe una nota de 5.0. 
+El promedio de estas notas corresponde al $20\%$ de la nota
+definitiva. 
+Esta contribuci\'on a la nota definitiva ser\'a de cero (0.0) si se
+dejaron de entregar {\bf ocho} o m\'as de estos ejercicios.
+Es necesario asistir a clase para que la entrega se tome como
+v\'alida. 
+\item
+Un examen final (con una componente escrita y otra de
+programaci\'on) con un valor del $30\%$ de la nota definitiva.
+\end{itemize}
+
+Al comienzo del semestre se har\'a un examen ($5\%$ de bono
+sobre la nota definitiva) para diagnosticar el conocimiento general
+que ya tienen los estudiantes sobre los temas del curso. 
+\\[0.1cm]
+
+
+
+\newpage
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad
+  Bibliograf\'ia}\\[-0.2cm] 
+
+%Indicar los libros y la documentacion guia.
+
+\noindent\normalsize Bibliograf\'ia principal:
+
+\begin{itemize}
+\item [(DABT)] D.S. Sivia, J.Skilling, \textit{Data Analysis. A Bayesian Tutorial}, Second Edition, 2012, Oxford.\\[-0.6cm]
+\item [(ITILA)] D. J. MacKay., \textit{Information Theory, Inference and
+  Learning Algorithms}, 2003,
+  Cambdrige. \\
+  \url{http://www.inference.phy.cam.ac.uk/mackay/itila/}.
+  \\[-0.6cm]  
+\item [(ISLR)] G. James, D. Witten, T. Hastie, R. Tibshirani., \textit{An
+  Introduction to Statistical Learning with Applications in R}, 2015,
+  Springer. \\
+  \url{http://www-bcf.usc.edu/~gareth/ISL/} \\[-0.6cm] 
+\item [(ISTC)] F. T. Wilmore, E. Jankowski, C. Colina, \textit{Introduction
+  to Scientific and Technical Computing}, 2017. CRC Press. (Biblioteca
+  General - 502.85 I576)\\[-0.6cm] 
+
+\end{itemize} 
+
+\noindent\normalsize Bibliograf\'ia complementaria:
+
+\begin{itemize}
+\item I. Goodfellow, Y. Bengio, A. Courville., \textit{Deep Learning}, 
+  2016, MIT.\\
+  \url{http://www.deeplearningbook.org/}
+  \\[-0.6cm] 
+\item A. Tveito, H.P. Langtangen, B.F. Nielsen., \textit{Elements of
+  Scientific Computing}, 2010.  (Biblioteca General, Recurso
+  Electr\'onico 510. )\\[-0.6cm] 
+\item R. L. Burden, J. D. Faires. \textit{Numerical analysis},
+  2011. (Biblioteca General - 519.4 B862 2011)\\[-0.6cm]
+\item O. Maimon and L. Rokach, \textit{The Data Mining and Knowledge
+  Discovery Handbook}, 2010. (Biblioteca General, Recurso
+  Electr\'onico 006.312)\\[-0.6cm]
+\item M. Snir, \textit{MPI : the complete reference},
+  1996. (Biblioteca General, 004.35 M637)\\[-0.6cm]
+\item J. Sanders, E. Kandrot. \textit{CUDA by example: an
+  introduction to general-purpose GPU programming}, 2010. (Biblioteca
+  General - 005.275 S152)\\[-0.6cm]
+\item D. Conway and J. M. White. \textit{Machine learning for
+    hackers}, 2012.\\[-0.6cm]
+\item Theano Development. \textit{Deep Learning Tutorial}
+  \url{http://deeplearning.net/tutorial/}  \\[-0.6cm]
+\item J. VanderPlas., \textit{Python Data Science Handbook}, 2016,
+  O'Reilly.\\
+  \url{https://github.com/jakevdp/PythonDataScienceHandbook} 
+  \\[-0.2cm] 
+\end{itemize}
+
+
+\end{document}

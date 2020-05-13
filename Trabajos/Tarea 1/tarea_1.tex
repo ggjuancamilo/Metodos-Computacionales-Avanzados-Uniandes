@@ -1,0 +1,90 @@
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Formato para los talleres del curso de Métodos Computacionales
+% Universidad de los Andes
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+\documentclass[11pt,letterpaper]{exam}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[absolute]{textpos} % Para poner una imagen completa en la portada
+\usepackage{hyperref}
+\usepackage{float}
+
+\newcommand{\base}[1]{\underline{\hspace{#1}}}
+\boxedpoints
+\pointname{ pt}
+
+\extraheadheight{-0.15in}
+
+\newcommand\upquote[1]{\textquotesingle#1\textquotesingle} % To fix straight quotes in verbatim
+
+
+
+\begin{document}
+\begin{center}
+{\Large Universidad de los Andes - M\'etodos Computacionales Avanzados} \\
+Tarea 1 - \textsc{MPI}\\
+24-02-2017\\
+\end{center}
+
+\vspace{0.3cm}
+
+
+\noindent
+La soluci\'on a este ejercicio debe subirse por SICUA antes de las 6:00PM
+del viernes 10 de marzo del 2017. 
+Los c\'odigos deben encontrarse en un unico repositorio de \verb'github'
+con el nombre \verb"NombreApellido_Tarea1". Por ejemplo yo deber\'ia
+subir crear un repositorio con el nombre \verb"JaimeForero_Tarea1". 
+
+\noindent
+En el repositorio deben estar los siguientes elementos.
+\begin{itemize}
+\item (60 puntos) Un c\'odigo fuente en C paralelizado en OPENMP que resuelve las ecuaciones diferenciales y produce datos.
+\item (20 puntos) Un c\'odigo en Python que lee los datos producidos por el
+  c\'odigo en C y produce visualizaciones.
+\item (20 puntos) Un c\'odigo en Python que grafica el tiempo en que corre el c\'odigo como funci\'on del num\'ero de procesadores.
+\item (10 puntos) Un makefile que: 1) compila el c\'odigo en C 2) ejecuta el programa con 1, 2 y 4 procesadores y 3) produce graficas en Python.
+\item (10 puntos) Un archivo de texto (\verb"README") con nombres completos y c\'odigos de los integrantes (m\'aximo dos personas).
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{questions}
+\question{\bf{Problema Fermi-Pasta-Ulam-Tsingou}}
+
+Considere un s\'olido unidimensional con N \'atomos.
+Vamos a pensar que los \'atomos est\'an unidos por acoplamientos no
+lineales de resortes, de tal manera que los desplazamientos con respecto
+a su posici\'on de equilibrio est\'an descritos por
+
+\begin{equation}
+\ddot{x}_n = (x_{n+1} - 2x_n + x_{n-1}) + \beta[(x_{n+1}-x_n)^2 - (x_n - x_{n-1})^2]
+\end{equation}
+
+Tomando condiciones de contorno fijas $x_{0}=x_{N-1}=0$, modele el comportamiento
+de este s\'olido unidimensional un tiempo total de evoluci\'on $T=5.0N^{2.2}$
+usando $\beta=1.0$ y $N=64$. La condici\'on inicial debe ser
+$x_n = \sin(\pi n/(N-1))$. La integraci\'on
+temporal debe hacerse con un m\'etodo leapfrog y $\Delta t=5\times 10^{-3}$.
+
+El c\'odigo debe producir como resultado un archivo de la energ\'ia en los modos $k=1,2,3$ de toda la cadena para $1000$ instantes equiespaciados
+temporalmente (ver las referencias para tener la expresi\'on
+expl\'icita de $E_k$).
+
+Luego un archivo de python debe leer este archivo de salida para
+producir una gr\'afica de $E_k$ en funci\'on del tiempo para estos
+primeros tres modos.  
+
+Referencias sobre este problema\\
+\url{http://www.scholarpedia.org/article/Fermi-Pasta-Ulam_nonlinear_lattice_oscillations}\\
+\url{http://www.me.umn.edu/~dtraian/FPU.pdf}\\
+\end{questions}
+\end{document}
+
